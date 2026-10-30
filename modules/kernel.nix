@@ -43,6 +43,8 @@ in
   };
 
   config = {
+    boot.kernelParams = [ "iomem=relaxed" ];
+
     boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
       argsOverride = rec {
         inherit (cfg) version;
